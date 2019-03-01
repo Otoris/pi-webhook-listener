@@ -21,6 +21,7 @@ app.post('/github', function (req, res) {
   exec('git -C ~/'+ req.body.repository.name +' pull -f', execCallback);
 
   exec('./tasks/'+ req.body.repository.name +'.sh', execCallback);
+  res.sendStatus(200);
 });
 
 app.listen(5000, function () {
